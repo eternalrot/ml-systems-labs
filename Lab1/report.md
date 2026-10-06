@@ -17,8 +17,8 @@ Set up a reproducible, pinned Python environment, train two baseline models (lin
 
 | Model | Test accuracy | Train time (median of 5) | Latency / sample (median of 100) | Model size | Peak RSS train | Peak RSS infer | Extra RSS train / infer |
 |---|---|---|---|---|---|---|---|
-| Logistic Regression | 0.9474 | 251.1 ms | 0.035 ms | 1055 B (1.03 KB) | 111.1 MB | 111.1 MB | 0.10 / 0.02 MB |
-| Random Forest | 0.9357 | 100.8 ms | 1.395 ms | 290 889 B (284.1 KB) | 113.0 MB | 113.1 MB | 0.13 / 0.02 MB |
+| Logistic Regression | 0.9474 | 250.9 ms | 0.033 ms | 1055 B (1.03 KB) | 110.5 MB | 110.5 MB | 0.09 / 0.02 MB |
+| Random Forest | 0.9357 | 102.1 ms | 1.407 ms | 290 889 B (284.1 KB) | 112.6 MB | 112.6 MB | 0.32 / 0.00 MB |
 
 Deployment fit (budgets from the task; full table in `results/budget_fit.csv`):
 
@@ -26,15 +26,15 @@ Deployment fit (budgets from the task; full table in `results/budget_fit.csv`):
 |---|---|---|---|
 | Cloud | ≥1 GB / ≤100 ms / ≤500 MB | Fits | Fits |
 | Edge | 256–1024 MB / ≤50 ms / ≤50 MB | Fits | Fits |
-| Mobile | 64–256 MB / ≤20 ms / ≤10 MB | Fits (111 MB process) | Fits (113 MB process) |
+| Mobile | 64–256 MB / ≤20 ms / ≤10 MB | Fits (110 MB process) | Fits (113 MB process) |
 | TinyML | ≤256 KB / ≤10 ms / ≤100 KB | Latency and size OK (1 KB), **memory fails** with a Python runtime | **Fails**: 284 KB model > 100 KB, and memory |
 
 ## 4. Deployment-fit argument
-Both models run comfortably on Cloud and Edge: latency is 2–3 orders of magnitude below the limits and model size is far below 50 MB. On Mobile the models also fit: the ~111–113 MB figure is the whole Python process (interpreter, NumPy, scikit-learn), while the models themselves add well under 1 MB, so latency (≤1.4 ms vs 20 ms) and size (≤284 KB vs 10 MB) leave a large margin. TinyML is the interesting case. Logistic regression is only 1 KB and has microsecond latency, and its inference is 30 multiply-adds, so it could run on a microcontroller if the weights are exported to C; but the scikit-learn/Python process itself needs ~111 MB, so the measured setup does not meet the 256 KB memory limit. The random forest cannot go to TinyML at all: 284 KB exceeds the 100 KB size limit even before runtime memory is counted.
+Both models run comfortably on Cloud and Edge: latency is 2–3 orders of magnitude below the limits and model size is far below 50 MB. On Mobile the models also fit: the ~110–113 MB figure is the whole Python process (interpreter, NumPy, scikit-learn), while the models themselves add well under 1 MB, so latency (≤1.4 ms vs 20 ms) and size (≤284 KB vs 10 MB) leave a large margin. TinyML is the interesting case. Logistic regression is only 1 KB and has microsecond latency, and its inference is 30 multiply-adds, so it could run on a microcontroller if the weights are exported to C; but the scikit-learn/Python process itself needs ~110 MB, so the measured setup does not meet the 256 KB memory limit. The random forest cannot go to TinyML at all: 284 KB exceeds the 100 KB size limit even before runtime memory is counted.
 
 ## 5. Conclusions
-1. The logistic regression turned out to be the better baseline for this dataset. It has slightly higher accuracy (0.9474 vs 0.9357), predicts one sample about 40 times faster (0.035 ms vs 1.4 ms) and its file is about 275 times smaller (1 KB vs 284 KB). The forest is only faster to train (101 ms vs 251 ms), and that happens because LogisticRegression runs all 1000 iterations on unscaled data. Training happens once, while latency and size matter every time the model is deployed, so the forest's extra cost is not justified here.
-2. The memory I measured (about 111-113 MB) is almost entirely Python, NumPy and scikit-learn, not the model: the models themselves add only about 0.1 MB. So the "memory" number depends on how you deploy. A Python service needs about 110 MB, but the model alone (weights) needs a few KB. This is why the same model can fit Mobile with the Python runtime and still be a candidate for TinyML after export.
+1. The logistic regression turned out to be the better baseline for this dataset. It has slightly higher accuracy (0.9474 vs 0.9357), predicts one sample about 40 times faster (0.033 ms vs 1.4 ms) and its file is about 275 times smaller (1 KB vs 284 KB). The forest is only faster to train (102 ms vs 251 ms), and that happens because LogisticRegression runs all 1000 iterations on unscaled data. Training happens once, while latency and size matter every time the model is deployed, so the forest's extra cost is not justified here.
+2. The memory I measured (about 110-113 MB) is almost entirely Python, NumPy and scikit-learn, not the model: the models themselves add only about 0.1-0.3 MB. So the "memory" number depends on how you deploy. A Python service needs about 110 MB, but the model alone (weights) needs a few KB. This is why the same model can fit Mobile with the Python runtime and still be a candidate for TinyML after export.
 3. Hardware limits, not accuracy, decide where a model can run. Both models fit Cloud, Edge and Mobile with a large margin. For TinyML the random forest fails immediately because 284 KB is more than the 100 KB limit, while the logistic regression (1 KB) could fit only if it is exported without Python (for example as C code with 30 weights). Also, the accuracy gap is small and the test set only has 171 samples, so I would choose the model by cost, not by 1 percentage point of accuracy.
 
 ## Notes and limitations
