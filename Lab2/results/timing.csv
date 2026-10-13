@@ -1,0 +1,5 @@
+width,batch,forward_median_us,backward_median_us,backward_over_forward
+16,32,21.9,24.2,1.11
+16,1257,561.4,661.7,1.18
+64,32,47.3,64.8,1.37
+64,1257,1078.3,1730.5,1.6
