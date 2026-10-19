@@ -1,0 +1,6 @@
+layer,flops
+Linear 784->256,401408
+"Conv2d 16->32, 3x3, 14x14 out",1806336
+"Attention QKV projections (seq=16, d=64)",393216
+"Attention scores QK^T (seq=16, d=64)",32768
+"Full encoder layer (seq=16, d=64, ff=128)",1114112

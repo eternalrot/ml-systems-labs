@@ -1,0 +1,4 @@
+model,params,hand_flops,test_accuracy,latency_b1_ms,latency_b128_ms
+MLP,235146,469504,0.877,0.2246,0.519
+CNN,20490,2063488,0.8958,0.2855,3.859
+Attention,71818,2329856,0.8593,1.2184,3.709

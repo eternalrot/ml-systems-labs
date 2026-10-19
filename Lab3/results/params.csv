@@ -1,0 +1,4 @@
+model,torchinfo_total_params,sum_of_param_numel,match
+MLP,235146,235146,True
+CNN,20490,20490,True
+Attention,71818,71818,True

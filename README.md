@@ -36,3 +36,10 @@ cd Lab2
 python src/lab2.py
 ```
 See `Lab2/report.md`.
+
+## Lab 3
+```bash
+cd Lab3
+python src/lab3.py
+```
+See `Lab3/report.md`.

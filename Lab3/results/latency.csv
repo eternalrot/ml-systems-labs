@@ -1,0 +1,4 @@
+model,batch1_median_ms(100 runs),batch128_median_ms(20 runs),batch128_per_sample_us
+MLP,0.2246,0.519,4.05
+CNN,0.2855,3.859,30.15
+Attention,1.2184,3.709,28.97
