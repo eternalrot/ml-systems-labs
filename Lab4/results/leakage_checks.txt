@@ -1,0 +1,6 @@
+PASS  train and test share no rows (index)
+PASS  fitted medians == medians recomputed from the TRAIN split only
+PASS  clip bounds (1st/99th percentile) == bounds recomputed from the TRAIN split only
+PASS  test rows were never dropped (no duplicate removal on test)
+PASS  raw data unchanged by the whole pipeline (content hash identical)
+info: 99th percentile train vs full data: fnlwgt 509629/509484, capital-gain 15024/15024

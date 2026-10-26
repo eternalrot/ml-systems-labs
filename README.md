@@ -43,3 +43,10 @@ cd Lab3
 python src/lab3.py
 ```
 See `Lab3/report.md`.
+
+## Lab 4
+```bash
+cd Lab4
+python src/run_pipeline.py
+```
+See `Lab4/report.md` and `Lab4/data_card.md`.
