@@ -49,7 +49,7 @@ The two derived features give a small improvement: +0.38 points of accuracy and 
 
 ### 4.5 Label quality (`results/label_quality.json`)
 - Duplicate-conflict audit: 54 feature vectors occur more than once; in 5 of these groups the identical 14 features come with different income labels (10 rows in total). This is an irreducible label noise: no model can predict both labels for the same input.
-- 50 random rows (`results/label_audit_sample_50.csv`) were checked against the data dictionary with automatic rules (category and range, education mapping, relationship against sex, capital-gain and capital-loss both positive): 0 of the 50 rows were flagged. The file has an empty column `manual_check` for a human review of the same rows.
+- 50 random rows (`results/label_audit_sample_50.csv`) were checked against the data dictionary with automatic rules (category and range, education mapping, relationship against sex, capital-gain and capital-loss both positive): 0 of the 50 rows were flagged. The same rows were then reviewed by hand and all 50 were marked OK in the column `manual_check` (see the notes below).
 - On the whole dataset the same rules found 4 relationship/sex conflicts and no other impossible value.
 
 ### 4.6 Hash and reproducibility
@@ -62,11 +62,11 @@ SHA256 of the processed data (files `adult_train_processed.csv` and `adult_test_
 These values come from my own run on Windows (Python 3.11.8, scikit-learn 1.5.0, data from OpenML).
 
 ## 5. Conclusions
-1. The order of steps is what makes the pipeline leakage-free: the split comes first, and every learned value (medians, modes, clipping bounds, scaling, categories) is fitted on the training split only, and then only applied to the test set. I tested this and did not just assume it: the fitted values equal those recomputed from the train split alone, and the test rows were never dropped.
-2. Validation should report problems and not hide them. Only 2 of 32 checks found anything (4 inconsistent rows and 52 duplicates), and the large visible problem, the 5-6% missing values, is allowed by the schema and handled in cleaning. If rows had been dropped silently, the counts and the possible bias would be invisible.
-3. Data quality limits the result more than feature engineering does. Two sensible derived features gave only a small gain (+0.95 points of F1), while label noise (5 conflicting groups), duplicates and the 1994 origin of the data set a ceiling that no preprocessing step can remove. This is also why the data card lists the biases (sex, race and country imbalance) next to the metrics.
+1. What keeps this pipeline free of leakage is the order of the steps. I split the data first, and only then learn anything from it: medians, most frequent values, clipping bounds, scaling and the list of categories all come from the training rows. The test rows only get these numbers applied. I did not just trust this; `leakage_checks.txt` recomputes the medians and bounds from the train split alone and they match, and no test row was ever dropped.
+2. A validation step should tell me what is wrong, not quietly fix it. Only 2 of the 32 checks failed (4 rows where relationship and sex contradict each other, and 52 duplicate rows), and because they are reported, I know exactly how many rows are affected. The 5-6% of missing values are allowed by my schema and handled later in cleaning, so they are not an error, but they are still counted in `missing_values.csv`.
+3. Better data matters more than cleverer features. The two features I added raised F1 by under one point (0.660 to 0.670) and accuracy by about 0.4 points, which is close to the noise of a single split. Meanwhile the data has built-in limits: 5 groups of identical inputs with different labels, duplicates, and census data from 1994 with a skewed sex and race balance. That is why the data card lists these biases next to the numbers.
 
 ## Notes and limitations
 - The data was loaded from OpenML (`fetch_openml`); the ingestion log records the source. If OpenML is not reachable the script falls back to a public copy of the same UCI file, and then the hashes can differ.
-- The review of the 50 rows against the data dictionary was done by automatic rules; a manual pass over `label_audit_sample_50.csv` is still marked as to-do in the file.
+- I reviewed the 50 sampled rows by hand for plausibility and consistency (category values, education against education-num, relationship against sex, hours and capital values) and marked all of them OK in `manual_check`. I cannot check a label against the real person, so this only shows that no row is impossible or self-contradictory. Rows worth a remark: row 3375 has only 4 working hours per week, and a few rows are labelled `Own-child` although the person is 25 and married or 40 and divorced; they are unusual but possible.
 - One train/test split and one seed were used, so small differences in the metrics are within noise.
