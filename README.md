@@ -2,6 +2,8 @@
 
 Individual lab work for the ML Systems course (textbook: Reddi, *Introduction to Machine Learning Systems*).
 
+Pavlo Budko 72591
+
 ## Structure
 ```
 ml-labs/
