@@ -1,0 +1,7 @@
+quantity,value
+forward value: own engine,9.342459846301564
+forward value: torch,9.342459846301564
+max|own - torch autograd| (grad),0.0
+max|own - numerical| (grad),1.0709525627428107e-09
+max|torch - numerical| (grad),1.0709525627428107e-09
+forward diff |own - torch|,0.0

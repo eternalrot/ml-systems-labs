@@ -52,3 +52,10 @@ cd Lab4
 python src/run_pipeline.py
 ```
 See `Lab4/report.md` and `Lab4/data_card.md`.
+
+## Lab 5
+```bash
+cd Lab5
+python src/lab5.py        # about 5 minutes: the scalar engine is slow on purpose (it is timed 6 times)
+```
+Scalar autograd engine (`src/engine.py`), gradient checks, make_moons training vs PyTorch, eager vs traced vs compiled, non-contiguous tensors. Results in `Lab5/results/`, write-up in `Lab5/report.md`.

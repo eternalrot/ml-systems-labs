@@ -1,0 +1,7 @@
+mode,value (us per forward; compile first-call in s),speedup_vs_eager,status
+eager,501.7,1.00,ok
+torch.jit.trace + freeze,478.5,1.05,ok
+"torch.compile (first call, s)",1.39,-,ok
+torch.compile (after warm-up),507.6,0.99,ok
+"eager, batch=1",121.0,1.00,ok
+"trace+freeze, batch=1",112.0,1.08,ok

@@ -1,0 +1,7 @@
+quantity,value
+median time ratio own/torch,399.9994650365856
+max |loss_own - loss_torch| over epochs,6.661338147750939e-16
+train rows,210
+test rows,90
+epochs,100
+lr,0.5

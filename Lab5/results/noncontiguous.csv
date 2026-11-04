@@ -1,0 +1,6 @@
+operation,contiguous_ms,non_contiguous_ms,ratio
+relu,0.417,0.431,1.03
+add (t + t),0.322,0.320,0.99
+sum(dim=1),0.421,0.625,1.49
+nonc.contiguous() (copy cost),-,4.176,-
+matmul A @ B vs A @ B.T,27.404,26.168,0.95

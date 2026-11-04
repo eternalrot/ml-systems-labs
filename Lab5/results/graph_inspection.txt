@@ -1,0 +1,33 @@
+== autograd graph (grad_fn chain, walked from the loss) ==
+MeanBackward0
+  LogsumexpBackward0
+    AddmmBackward0
+      AccumulateGrad
+      ReluBackward0
+        AddmmBackward0
+          AccumulateGrad
+          ReluBackward0
+            AddmmBackward0
+              AccumulateGrad
+              TBackward0
+                AccumulateGrad
+          TBackward0
+      TBackward0
+
+== torch.fx symbolic trace ==
+graph():
+    %input_1 : [num_users=1] = placeholder[target=input]
+    %_0 : [num_users=1] = call_module[target=0](args = (%input_1,), kwargs = {})
+    %_1 : [num_users=1] = call_module[target=1](args = (%_0,), kwargs = {})
+    %_2 : [num_users=1] = call_module[target=2](args = (%_1,), kwargs = {})
+    %_3 : [num_users=1] = call_module[target=3](args = (%_2,), kwargs = {})
+    %_4 : [num_users=1] = call_module[target=4](args = (%_3,), kwargs = {})
+    return _4
+
+== tensors: shape / dtype / stride / contiguity ==
+input x                      shape=(64, 256) dtype=torch.float32 stride=(256, 1) contiguous=True
+Linear0.weight               shape=(512, 256) dtype=torch.float32 stride=(256, 1) contiguous=True
+Linear0.weight.T (view)      shape=(256, 512) dtype=torch.float32 stride=(1, 256) contiguous=False
+x[:, ::2] (strided view)     shape=(64, 128) dtype=torch.float32 stride=(256, 2) contiguous=False
+x.contiguous()               shape=(64, 256) dtype=torch.float32 stride=(256, 1) contiguous=True
+output                       shape=(64, 10) dtype=torch.float32 stride=(10, 1) contiguous=True
