@@ -1,0 +1,108 @@
+{
+  "name": "workers_2",
+  "status": "complete",
+  "epochs_done": 3,
+  "n_params": 20490,
+  "final_val_acc": 0.8032,
+  "best_val_acc": 0.8032,
+  "test_acc": 0.8073,
+  "median_samples_per_s": 9040.58179913471,
+  "first_epoch_samples_per_s": 9153.466376567862,
+  "peak_rss_mb": 554.58984375,
+  "rss_before_mb": 315.4453125,
+  "train_seconds": 13.362687299988465,
+  "history": [
+    {
+      "epoch": 1,
+      "lr": 0.001,
+      "train_loss": 1.009969833946228,
+      "val_loss": 0.6594325304031372,
+      "val_acc": 0.7524,
+      "epoch_seconds": 2.184964599990053,
+      "samples_per_s": 9153.466376567862,
+      "t_data_loading": 0.6723276000120677,
+      "t_forward": 0.6117068000312429,
+      "t_backward": 0.7420591999252792,
+      "t_optimizer_step": 0.1567384999943897
+    },
+    {
+      "epoch": 2,
+      "lr": 0.001,
+      "train_loss": 0.6998332160949707,
+      "val_loss": 0.5693079590797424,
+      "val_acc": 0.7886,
+      "epoch_seconds": 2.181758399994578,
+      "samples_per_s": 9166.91784023827,
+      "t_data_loading": 0.6513915999676101,
+      "t_forward": 0.6045410999213345,
+      "t_backward": 0.7622097001585644,
+      "t_optimizer_step": 0.1614265000098385
+    },
+    {
+      "epoch": 3,
+      "lr": 0.001,
+      "train_loss": 0.629190079498291,
+      "val_loss": 0.5349003434181213,
+      "val_acc": 0.8032,
+      "epoch_seconds": 2.2435998000146355,
+      "samples_per_s": 8914.24575803115,
+      "t_data_loading": 0.689417800080264,
+      "t_forward": 0.6148820998787414,
+      "t_backward": 0.7782259998493828,
+      "t_optimizer_step": 0.15897880014381371
+    }
+  ],
+  "config": {
+    "seed": 42,
+    "device": "cpu",
+    "data": {
+      "root": "../data",
+      "train_size": 20000,
+      "val_size": 5000,
+      "augment": true,
+      "preload": false,
+      "num_workers": 2
+    },
+    "model": {
+      "name": "CNN"
+    },
+    "train": {
+      "epochs": 3,
+      "batch_size": 128,
+      "accum_steps": 1,
+      "stop_after_epoch": null,
+      "optimizer": {
+        "name": "adam",
+        "lr": 0.001,
+        "momentum": 0.9,
+        "weight_decay": 0.0
+      },
+      "scheduler": {
+        "name": "none",
+        "step_size": 3,
+        "gamma": 0.5,
+        "factor": 0.5,
+        "patience": 1
+      }
+    },
+    "checkpoint": {
+      "dir": "checkpoints",
+      "resume_from": null
+    },
+    "profile": {
+      "enabled": false
+    },
+    "mlflow": {
+      "experiment": "lab6",
+      "log_checkpoint": true
+    }
+  },
+  "profile": null,
+  "env": {
+    "python": "3.11.8",
+    "torch": "2.3.1+cpu",
+    "threads": 10,
+    "platform": "Windows-10-10.0.26200-SP0",
+    "cpu_count": 16
+  }
+}

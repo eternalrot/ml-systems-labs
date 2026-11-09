@@ -1,0 +1,2 @@
+check,value
+"max abs gradient difference, batch 256 vs 4 x 64 accumulated (one step, float32)",2.8870999813079834e-08

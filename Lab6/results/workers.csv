@@ -1,0 +1,7 @@
+num_workers,samples_per_s_epoch1,samples_per_s_median_epoch2-3,time_waiting_for_data_%,fraction_of_compute_only_speed
+0,4270,4126,69.6,0.33
+1,5119,5237,61.0,0.42
+2,9153,9041,30.3,0.72
+4,11185,11329,5.8,0.90
+8,11505,11452,6.0,0.91
+"0 (preloaded tensors, no augmentation = compute only)",12498,12603,9.2,1.00

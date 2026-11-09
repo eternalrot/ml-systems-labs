@@ -1,0 +1,108 @@
+{
+  "name": "profile_w2",
+  "status": "complete",
+  "epochs_done": 1,
+  "n_params": 20490,
+  "final_val_acc": 0.7524,
+  "best_val_acc": 0.7524,
+  "test_acc": 0.7511,
+  "median_samples_per_s": 6016.543991863092,
+  "first_epoch_samples_per_s": 6016.543991863092,
+  "peak_rss_mb": 576.21484375,
+  "rss_before_mb": 314.61328125,
+  "train_seconds": 9.848392499989131,
+  "history": [
+    {
+      "epoch": 1,
+      "lr": 0.001,
+      "train_loss": 1.009969833946228,
+      "val_loss": 0.6594325304031372,
+      "val_acc": 0.7524,
+      "epoch_seconds": 3.324167499988107,
+      "samples_per_s": 6016.543991863092,
+      "t_data_loading": 0.4379306999617256,
+      "t_forward": 0.6351974001154304,
+      "t_backward": 0.7842617996502668,
+      "t_optimizer_step": 0.17225370023516007
+    }
+  ],
+  "config": {
+    "seed": 42,
+    "device": "cpu",
+    "data": {
+      "root": "../data",
+      "train_size": 20000,
+      "val_size": 5000,
+      "augment": true,
+      "preload": false,
+      "num_workers": 2
+    },
+    "model": {
+      "name": "CNN"
+    },
+    "train": {
+      "epochs": 1,
+      "batch_size": 128,
+      "accum_steps": 1,
+      "stop_after_epoch": null,
+      "optimizer": {
+        "name": "adam",
+        "lr": 0.001,
+        "momentum": 0.9,
+        "weight_decay": 0.0
+      },
+      "scheduler": {
+        "name": "none",
+        "step_size": 3,
+        "gamma": 0.5,
+        "factor": 0.5,
+        "patience": 1
+      }
+    },
+    "checkpoint": {
+      "dir": "checkpoints",
+      "resume_from": null
+    },
+    "profile": {
+      "enabled": true
+    },
+    "mlflow": {
+      "experiment": "lab6",
+      "log_checkpoint": true
+    }
+  },
+  "profile": {
+    "epoch_seconds": 3.324167499988107,
+    "timer_seconds": {
+      "data_loading": 0.4379306999617256,
+      "forward": 0.6351974001154304,
+      "backward": 0.7842617996502668,
+      "optimizer_step": 0.17225370023516007
+    },
+    "timer_share": {
+      "data_loading": 0.2157672903606323,
+      "forward": 0.31296006851998076,
+      "backward": 0.38640370145020775,
+      "optimizer_step": 0.08486893966917917
+    },
+    "profiler_seconds_recorded_steps": {
+      "data_loading": 0.168235,
+      "forward": 0.191316,
+      "backward": 0.247172,
+      "optimizer_step": 0.06046
+    },
+    "profiler_share": {
+      "data_loading": 0.252157204245312,
+      "forward": 0.28675191064520533,
+      "backward": 0.3704710701561641,
+      "optimizer_step": 0.09061981495331865
+    }
+  },
+  "env": {
+    "python": "3.11.8",
+    "torch": "2.3.1+cpu",
+    "threads": 10,
+    "platform": "Windows-10-10.0.26200-SP0",
+    "cpu_count": 16
+  }
+}

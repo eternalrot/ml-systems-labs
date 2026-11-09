@@ -1,0 +1,4 @@
+configuration,final_train_loss,val_acc,test_acc,samples_per_s,peak_rss_mb
+batch 256,0.6234,0.8100,0.8152,8889,560
+batch 64 x accumulation 4,0.6162,0.8042,0.8031,8444,555
+batch 64 (no accumulation),0.5099,0.8334,0.8302,8235,556

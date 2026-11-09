@@ -2,8 +2,6 @@
 
 Individual lab work for the ML Systems course (textbook: Reddi, *Introduction to Machine Learning Systems*).
 
-Pavlo Budko 72591
-
 ## Structure
 ```
 ml-labs/
@@ -59,3 +57,12 @@ cd Lab5
 python src/lab5.py        # about 5 minutes: the scalar engine is slow on purpose (it is timed 6 times)
 ```
 Scalar autograd engine (`src/engine.py`), gradient checks, make_moons training vs PyTorch, eager vs traced vs compiled, non-contiguous tensors. Results in `Lab5/results/`, write-up in `Lab5/report.md`.
+
+## Lab 6
+```bash
+cd Lab6
+python src/train.py --config config.yaml --name base       # one pipeline run (YAML-driven, MLflow, checkpoints)
+python src/studies.py all                                    # profile, workers, batch size, schedules, accumulation, resume (about 30 min)
+mlflow ui --backend-store-uri mlruns                         # browse the runs
+```
+Pipeline, studies and results in `Lab6/`, write-up in `Lab6/report.md`, project proposal in `Lab6/proposal.md`.

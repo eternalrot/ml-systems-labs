@@ -1,0 +1,6 @@
+configuration,last_epoch_lr,best_val_acc,final_val_acc,test_acc,final_train_loss
+"Adam, constant lr",0.00100,0.8452,0.8344,0.8375,0.4679
+Adam + StepLR,0.00013,0.8352,0.8352,0.8362,0.4911
+Adam + CosineAnnealingLR,0.00002,0.8372,0.8358,0.8377,0.4863
+Adam + ReduceLROnPlateau (patience 0),0.00025,0.8456,0.8422,0.8446,0.4600
+SGD+momentum + CosineAnnealingLR,0.00122,0.8736,0.8736,0.8728,0.3621

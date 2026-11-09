@@ -1,0 +1,6 @@
+batch_size,throughput_samples_per_s,peak_rss_mb(main process),val_acc_after_5_epochs,test_acc_after_5_epochs,final_train_loss
+32,6414,556,0.8466,0.8430,0.4680
+64,8319,555,0.8334,0.8302,0.5099
+128,8727,554,0.8166,0.8121,0.5511
+256,9001,560,0.8100,0.8152,0.6234
+512,9016,565,0.7826,0.7883,0.6926

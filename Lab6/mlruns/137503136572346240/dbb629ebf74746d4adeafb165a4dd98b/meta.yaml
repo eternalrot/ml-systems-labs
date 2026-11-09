@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/paska/PycharmProjects/ml-labs/Lab6/mlruns/137503136572346240/dbb629ebf74746d4adeafb165a4dd98b/artifacts
+end_time: 1794229021658
+entry_point_name: ''
+experiment_id: '137503136572346240'
+lifecycle_stage: active
+run_id: dbb629ebf74746d4adeafb165a4dd98b
+run_name: workers_1
+run_uuid: dbb629ebf74746d4adeafb165a4dd98b
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1794229006031
+status: 3
+tags: []
+user_id: paska

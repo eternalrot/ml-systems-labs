@@ -1,0 +1,37 @@
+# Single configuration object for the whole training pipeline (Lab 6).
+# Any value can be overridden from the command line:  python src/train.py --set train.epochs=3 data.num_workers=0
+seed: 42
+device: cpu                    # cpu | auto (auto uses CUDA when available)
+data:
+  root: ../data                # shared with Lab3 (Fashion-MNIST is downloaded once)
+  train_size: 55000            # 60000 - 5000 validation
+  val_size: 5000
+  augment: true                # random flip + small affine, done per sample in the loader (real data-loading work)
+  preload: false               # true = keep the (non-augmented) training set as tensors in memory; used as compute-only reference
+  num_workers: 2
+model:
+  name: CNN                    # best model of Lab 3: test accuracy 0.8955 (MLP 0.8773, Attention 0.859)
+train:
+  epochs: 5
+  batch_size: 128
+  accum_steps: 1               # gradient accumulation: optimizer step every N batches
+  stop_after_epoch: null       # set to an integer to simulate an interruption after that epoch
+  optimizer:
+    name: adam                 # adam | sgd
+    lr: 0.001
+    momentum: 0.9              # used by sgd only
+    weight_decay: 0.0
+  scheduler:
+    name: none                 # none | step | cosine | plateau
+    step_size: 3               # step
+    gamma: 0.5                 # step
+    factor: 0.5                # plateau
+    patience: 1                # plateau
+checkpoint:
+  dir: checkpoints
+  resume_from: null            # path to last.pt of an interrupted run
+profile:
+  enabled: false               # profile one epoch with torch.profiler
+mlflow:
+  experiment: lab6
+  log_checkpoint: true

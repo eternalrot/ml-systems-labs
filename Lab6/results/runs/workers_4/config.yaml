@@ -1,0 +1,35 @@
+seed: 42
+device: cpu
+data:
+  root: ../data
+  train_size: 20000
+  val_size: 5000
+  augment: true
+  preload: false
+  num_workers: 4
+model:
+  name: CNN
+train:
+  epochs: 3
+  batch_size: 128
+  accum_steps: 1
+  stop_after_epoch: null
+  optimizer:
+    name: adam
+    lr: 0.001
+    momentum: 0.9
+    weight_decay: 0.0
+  scheduler:
+    name: none
+    step_size: 3
+    gamma: 0.5
+    factor: 0.5
+    patience: 1
+checkpoint:
+  dir: checkpoints
+  resume_from: null
+profile:
+  enabled: false
+mlflow:
+  experiment: lab6
+  log_checkpoint: true

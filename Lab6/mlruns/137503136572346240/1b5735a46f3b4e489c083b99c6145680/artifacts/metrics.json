@@ -1,0 +1,147 @@
+{
+  "name": "resume_full",
+  "status": "complete",
+  "epochs_done": 6,
+  "n_params": 20490,
+  "final_val_acc": 0.8366,
+  "best_val_acc": 0.8366,
+  "test_acc": 0.8419,
+  "median_samples_per_s": 3863.650685479746,
+  "first_epoch_samples_per_s": 3790.4354653117207,
+  "peak_rss_mb": 549.9296875,
+  "rss_before_mb": 315.58203125,
+  "train_seconds": 32.537498299992876,
+  "history": [
+    {
+      "epoch": 1,
+      "lr": 0.001,
+      "train_loss": 1.0088464081764221,
+      "val_loss": 0.6331475734710693,
+      "val_acc": 0.767,
+      "epoch_seconds": 5.276438600005349,
+      "samples_per_s": 3790.4354653117207,
+      "t_data_loading": 3.6858229999488685,
+      "t_forward": 0.6431608000129927,
+      "t_backward": 0.7909995999652892,
+      "t_optimizer_step": 0.15426379998098128
+    },
+    {
+      "epoch": 2,
+      "lr": 0.001,
+      "train_loss": 0.6924688316345214,
+      "val_loss": 0.5806647300720215,
+      "val_acc": 0.7852,
+      "epoch_seconds": 5.348353000008501,
+      "samples_per_s": 3739.468954268391,
+      "t_data_loading": 3.767022099957103,
+      "t_forward": 0.6223208999435883,
+      "t_backward": 0.802952300029574,
+      "t_optimizer_step": 0.1537178000435233
+    },
+    {
+      "epoch": 3,
+      "lr": 0.001,
+      "train_loss": 0.6275658643722534,
+      "val_loss": 0.55371173620224,
+      "val_acc": 0.7844,
+      "epoch_seconds": 5.165832200000295,
+      "samples_per_s": 3871.593041678523,
+      "t_data_loading": 3.6141195000964217,
+      "t_forward": 0.6117668999067973,
+      "t_backward": 0.7880796001700219,
+      "t_optimizer_step": 0.1495794000220485
+    },
+    {
+      "epoch": 4,
+      "lr": 0.001,
+      "train_loss": 0.5731540871143341,
+      "val_loss": 0.49200772047042846,
+      "val_acc": 0.8234,
+      "epoch_seconds": 5.161485899996478,
+      "samples_per_s": 3874.8531697071276,
+      "t_data_loading": 3.605627800221555,
+      "t_forward": 0.6117224999761675,
+      "t_backward": 0.7862645000277553,
+      "t_optimizer_step": 0.15561420013546012
+    },
+    {
+      "epoch": 5,
+      "lr": 0.001,
+      "train_loss": 0.5556137939453125,
+      "val_loss": 0.4683747231960297,
+      "val_acc": 0.8294,
+      "epoch_seconds": 5.253848099993775,
+      "samples_per_s": 3806.733582576112,
+      "t_data_loading": 3.675822400022298,
+      "t_forward": 0.6214594000193756,
+      "t_backward": 0.8052226998843253,
+      "t_optimizer_step": 0.14910850004525855
+    },
+    {
+      "epoch": 6,
+      "lr": 0.001,
+      "train_loss": 0.5245817449569702,
+      "val_loss": 0.45390761494636533,
+      "val_acc": 0.8366,
+      "epoch_seconds": 5.176451400009682,
+      "samples_per_s": 3863.650685479746,
+      "t_data_loading": 3.610955099982675,
+      "t_forward": 0.6108773002633825,
+      "t_backward": 0.799715299741365,
+      "t_optimizer_step": 0.15268200027639978
+    }
+  ],
+  "config": {
+    "seed": 42,
+    "device": "cpu",
+    "data": {
+      "root": "../data",
+      "train_size": 20000,
+      "val_size": 5000,
+      "augment": true,
+      "preload": false,
+      "num_workers": 0
+    },
+    "model": {
+      "name": "CNN"
+    },
+    "train": {
+      "epochs": 6,
+      "batch_size": 128,
+      "accum_steps": 1,
+      "stop_after_epoch": null,
+      "optimizer": {
+        "name": "adam",
+        "lr": 0.001,
+        "momentum": 0.9,
+        "weight_decay": 0.0
+      },
+      "scheduler": {
+        "name": "none",
+        "step_size": 3,
+        "gamma": 0.5,
+        "factor": 0.5,
+        "patience": 1
+      }
+    },
+    "checkpoint": {
+      "dir": "checkpoints",
+      "resume_from": null
+    },
+    "profile": {
+      "enabled": false
+    },
+    "mlflow": {
+      "experiment": "lab6",
+      "log_checkpoint": true
+    }
+  },
+  "profile": null,
+  "env": {
+    "python": "3.11.8",
+    "torch": "2.3.1+cpu",
+    "threads": 10,
+    "platform": "Windows-10-10.0.26200-SP0",
+    "cpu_count": 16
+  }
+}

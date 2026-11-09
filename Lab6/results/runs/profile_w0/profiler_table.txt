@@ -1,0 +1,16 @@
+top operators by self CPU time over the recorded steps
+enumerate(DataLoader)#_SingleProcessDataLoaderIter.__next__      1036.5 ms  54.8 %
+aten::convolution_backward                                        124.0 ms   6.6 %
+aten::max_pool2d_with_indices                                      87.5 ms   4.6 %
+aten::_to_copy                                                     65.8 ms   3.5 %
+aten::threshold_backward                                           54.9 ms   2.9 %
+aten::mkldnn_convolution                                           48.8 ms   2.6 %
+aten::div                                                          32.6 ms   1.7 %
+aten::to                                                           32.1 ms   1.7 %
+aten::copy_                                                        28.1 ms   1.5 %
+aten::select                                                       25.5 ms   1.3 %
+aten::any                                                          24.8 ms   1.3 %
+aten::eq                                                           20.7 ms   1.1 %
+aten::lt                                                           20.1 ms   1.1 %
+aten::uniform_                                                     16.3 ms   0.9 %
+aten::clone                                                        16.1 ms   0.9 %

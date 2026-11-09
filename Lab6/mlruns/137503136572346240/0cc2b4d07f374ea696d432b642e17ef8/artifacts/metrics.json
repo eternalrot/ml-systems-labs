@@ -1,0 +1,134 @@
+{
+  "name": "accum_b64",
+  "status": "complete",
+  "epochs_done": 5,
+  "n_params": 20490,
+  "final_val_acc": 0.8334,
+  "best_val_acc": 0.8334,
+  "test_acc": 0.8302,
+  "median_samples_per_s": 8234.810207037714,
+  "first_epoch_samples_per_s": 7869.267233876275,
+  "peak_rss_mb": 556.06640625,
+  "rss_before_mb": 315.64453125,
+  "train_seconds": 20.23450779999257,
+  "history": [
+    {
+      "epoch": 1,
+      "lr": 0.001,
+      "train_loss": 0.9056869758605957,
+      "val_loss": 0.6091407179832459,
+      "val_acc": 0.782,
+      "epoch_seconds": 2.541532700008247,
+      "samples_per_s": 7869.267233876275,
+      "t_data_loading": 0.4028199996391777,
+      "t_forward": 0.8099155001400504,
+      "t_backward": 1.0024661000643391,
+      "t_optimizer_step": 0.3220105002692435
+    },
+    {
+      "epoch": 2,
+      "lr": 0.001,
+      "train_loss": 0.6437559647560119,
+      "val_loss": 0.5535730242729187,
+      "val_acc": 0.799,
+      "epoch_seconds": 2.4634309000102803,
+      "samples_per_s": 8118.758273234511,
+      "t_data_loading": 0.32402360026026145,
+      "t_forward": 0.8006008997617755,
+      "t_backward": 1.0045396000205074,
+      "t_optimizer_step": 0.3298698000435252
+    },
+    {
+      "epoch": 3,
+      "lr": 0.001,
+      "train_loss": 0.5798752247810364,
+      "val_loss": 0.48969532251358033,
+      "val_acc": 0.8282,
+      "epoch_seconds": 2.373530100012431,
+      "samples_per_s": 8426.267692958792,
+      "t_data_loading": 0.25980870000785217,
+      "t_forward": 0.7821919000416528,
+      "t_backward": 0.9999601000454277,
+      "t_optimizer_step": 0.3272181000793353
+    },
+    {
+      "epoch": 4,
+      "lr": 0.001,
+      "train_loss": 0.5428214116573333,
+      "val_loss": 0.47870014905929564,
+      "val_acc": 0.8242,
+      "epoch_seconds": 2.3949623000225984,
+      "samples_per_s": 8350.862140840916,
+      "t_data_loading": 0.31704809982329607,
+      "t_forward": 0.7689782002125867,
+      "t_backward": 0.9737120998324826,
+      "t_optimizer_step": 0.33086570008890703
+    },
+    {
+      "epoch": 5,
+      "lr": 0.001,
+      "train_loss": 0.5098890914916993,
+      "val_loss": 0.4540394425392151,
+      "val_acc": 0.8334,
+      "epoch_seconds": 2.597107400011737,
+      "samples_per_s": 7700.875212133937,
+      "t_data_loading": 0.3017429000174161,
+      "t_forward": 0.8617245999048464,
+      "t_backward": 1.089919500023825,
+      "t_optimizer_step": 0.3394426001177635
+    }
+  ],
+  "config": {
+    "seed": 42,
+    "device": "cpu",
+    "data": {
+      "root": "../data",
+      "train_size": 20000,
+      "val_size": 5000,
+      "augment": true,
+      "preload": false,
+      "num_workers": 2
+    },
+    "model": {
+      "name": "CNN"
+    },
+    "train": {
+      "epochs": 5,
+      "batch_size": 64,
+      "accum_steps": 1,
+      "stop_after_epoch": null,
+      "optimizer": {
+        "name": "adam",
+        "lr": 0.001,
+        "momentum": 0.9,
+        "weight_decay": 0.0
+      },
+      "scheduler": {
+        "name": "none",
+        "step_size": 3,
+        "gamma": 0.5,
+        "factor": 0.5,
+        "patience": 1
+      }
+    },
+    "checkpoint": {
+      "dir": "checkpoints",
+      "resume_from": null
+    },
+    "profile": {
+      "enabled": false
+    },
+    "mlflow": {
+      "experiment": "lab6",
+      "log_checkpoint": true
+    }
+  },
+  "profile": null,
+  "env": {
+    "python": "3.11.8",
+    "torch": "2.3.1+cpu",
+    "threads": 10,
+    "platform": "Windows-10-10.0.26200-SP0",
+    "cpu_count": 16
+  }
+}

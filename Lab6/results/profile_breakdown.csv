@@ -1,0 +1,9 @@
+num_workers,phase,profiler_seconds_recorded_steps,profiler_share_%,wall_clock_timer_share_%
+0,data_loading,1.428,75.6,70.6
+0,forward,0.180,9.5,12.3
+0,backward,0.233,12.4,14.2
+0,optimizer_step,0.047,2.5,2.9
+2,data_loading,0.168,25.2,21.6
+2,forward,0.191,28.7,31.3
+2,backward,0.247,37.0,38.6
+2,optimizer_step,0.060,9.1,8.5

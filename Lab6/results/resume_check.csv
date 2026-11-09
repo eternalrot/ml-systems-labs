@@ -1,0 +1,6 @@
+quantity,value
+epochs completed before interruption,3
+max |train loss difference|,0.0
+max |val acc difference|,0.0
+final test acc uninterrupted,0.8419
+final test acc resumed,0.8419
