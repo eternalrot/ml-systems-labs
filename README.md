@@ -66,3 +66,10 @@ python src/studies.py all                                    # profile, workers,
 mlflow ui --backend-store-uri mlruns                         # browse the runs
 ```
 Pipeline, studies and results in `Lab6/`, write-up in `Lab6/report.md`, project proposal in `Lab6/proposal.md`.
+
+## Lab 7
+```bash
+cd Lab7
+python src/lab7.py        # baseline, pruning, latency/size, distillation, summary table (about 20-30 min)
+```
+Baseline CNN (1.03 M parameters), global / layer-wise / structured pruning, sparse-format size and kernel test, distillation into a 106 k-parameter student. Results in `Lab7/results/`, write-up in `Lab7/report.md`.

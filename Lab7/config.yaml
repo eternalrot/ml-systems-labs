@@ -1,0 +1,25 @@
+seed: 42
+data:
+  root: ../data                 # shared Fashion-MNIST folder
+  val_size: 5000
+train:
+  batch_size: 128
+  baseline_epochs: 10
+  baseline_lr: 0.001
+  finetune_epochs: 3            # pruning: fine-tune with the mask fixed
+  finetune_lr: 0.0005
+  student_epochs: 10
+  student_lr: 0.001
+prune:
+  sparsities: [0.0, 0.25, 0.5, 0.75, 0.9, 0.95]   # unstructured, global and layer-wise
+  filter_fractions: [0.10, 0.25, 0.50]            # structured: share of filters removed in every conv layer
+distill:
+  temperature: 4
+  alpha: 0.5
+  seeds: [42, 43, 44]           # the student is trained with and without teacher for every seed
+latency:
+  batch1_runs: 300              # median of N runs, 1 thread (typical edge setting)
+  batch128_runs: 30             # median of N runs, all threads
+  warmup: 50
+energy:
+  assumed_cpu_power_w: 15       # ASSUMPTION used to turn CPU time into joules; only relative numbers are meaningful

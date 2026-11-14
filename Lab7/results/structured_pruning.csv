@@ -1,0 +1,4 @@
+filters_removed,channels_left,params,fraction_of_params_removed,acc_before_finetune,acc_after_finetune,size_dense_kb,latency_b1_ms(1 thread),latency_b128_ms,macs,finetune_seconds
+0.1,"(14, 29, 58)",931989,0.0955,0.8904,0.9194,3643.7,0.3709,5.202,2469370,22.9
+0.25,"(12, 24, 48)",769322,0.2533,0.8402,0.918,3008.2,0.3085,4.262,1856576,19.6
+0.5,"(8, 16, 32)",511178,0.5039,0.7443,0.9132,1999.9,0.2339,2.868,1012992,14.6

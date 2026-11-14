@@ -1,0 +1,2 @@
+test_acc,params,weights_nonzero,weights_total,weight_sparsity,macs_dense,macs_nonzero,size_dense_kb,size_csr_kb,latency_b1_ms,latency_b128_ms,train_seconds,val_acc
+0.9152,1030346,1029904,1029904,0.0,2925952,2925952,4027.8046875,8054.55859375,0.407649960834533,5.807599925901741,90.64066209993325,0.9142

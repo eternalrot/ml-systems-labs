@@ -1,0 +1,7 @@
+model,DATA: training samples seen,MODEL: parameters,MODEL: non-zero weights,MODEL: size dense (KB),MODEL: size sparse CSR (KB),COMPUTE: MACs/img dense,COMPUTE: MACs/img non-zero,COMPUTE: latency batch 1 (ms),accuracy (test),"ENERGY: inference (uJ/img, est. at 15 W)","ENERGY: training (J, est. at 15 W)"
+baseline (oversized),550000,1030346,1029904,4027.8,8054.6,2925952,2925952,0.4076,0.9152,680.6,1360.0
+global pruning 90% + FT,715000,1030346,102991,4027.8,813.1,2925952,788293,0.4026,0.9178,684.7,1729.0
+layer-wise pruning 90% + FT,715000,1030346,102992,4027.8,813.1,2925952,293144,0.4118,0.8754,682.7,1723.0
+structured pruning 50% + FT,715000,511178,510792,1999.9,3998.6,1012992,1012992,0.2339,0.9132,336.1,1579.0
+"student, labels only",550000,105866,105744,416.1,831.1,1117056,1117056,0.2742,0.91,465.2,796.0
+student + distillation (incl. teacher training),1100000,105866,105744,416.1,831.1,1117056,1117056,0.2646,0.9041,506.0,2221.0

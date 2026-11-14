@@ -1,0 +1,7 @@
+model,seed,test_acc,train_seconds
+"student, labels only",42,0.91,53.1
+student + distillation,42,0.9041,57.4
+"student, labels only",43,0.9113,54.5
+student + distillation,43,0.9046,57.6
+"student, labels only",44,0.9115,53.3
+student + distillation,44,0.8994,56.6
