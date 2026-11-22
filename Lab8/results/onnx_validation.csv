@@ -1,0 +1,4 @@
+model,opset,max_abs_diff_vs_torch,tolerance,same_argmax_share(1000 imgs),test_acc_onnxruntime,onnx_file_kb,latency_b1_torch_ms,latency_b1_onnxruntime_ms,latency_b128_torch_ms,latency_b128_onnxruntime_ms,onnxruntime_version
+baseline,17,1.53e-05,0.0001,1.0,0.9152,4026.5,0.3428,0.1265,5.248,1.344,1.18.0
+pruned,17,7.63e-06,0.0001,1.0,0.9132,1998.5,0.2116,0.076,2.825,0.696,1.18.0
+distilled,17,7.63e-06,0.0001,1.0,0.9043,415.0,0.227,0.0493,3.786,0.58,1.18.0

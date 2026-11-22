@@ -1,0 +1,8 @@
+weights,scaling,test_acc
+float32 (original),-,0.9152
+8-bit,per-tensor,0.9155
+8-bit,per-channel,0.9155
+4-bit,per-tensor,0.9005
+4-bit,per-channel,0.9106
+2-bit,per-tensor,0.1207
+2-bit,per-channel,0.198

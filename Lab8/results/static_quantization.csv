@@ -1,0 +1,4 @@
+model,backend,calibration_images,acc_float,acc_static_int8,size_float_kb,size_static_kb,latency_b1_ms,latency_b128_ms
+baseline,fbgemm,500,0.9152,0.9157,4027.8,1023.8,0.4705,3.109
+pruned,fbgemm,500,0.9132,0.9134,1999.9,515.8,0.3742,2.098
+distilled,fbgemm,500,0.9043,0.905,416.1,113.2,0.3201,2.312

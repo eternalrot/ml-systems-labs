@@ -1,0 +1,5 @@
+platform,max_accuracy_drop_vs_best,max_size_kb,minimise,chosen_variant,test_acc,size_kb,latency_b1_ms
+cloud,0.01,,latency_b128_ms,pruned (structured 50%) fp32 [ONNX Runtime],0.9132,1998.5,0.076
+edge,0.015,5120,latency_b1_ms,distilled student fp32 [ONNX Runtime],0.9043,415.0,0.0493
+mobile,0.02,2048,latency_b1_ms,distilled student fp32 [ONNX Runtime],0.9043,415.0,0.0493
+tinyml,0.03,256,size_kb,distilled + static int8 [PyTorch (fbgemm)],0.905,113.2,0.3201

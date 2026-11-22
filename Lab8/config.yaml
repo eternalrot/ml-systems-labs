@@ -1,0 +1,34 @@
+seed: 42
+data:
+  root: ../data
+  val_size: 5000
+train:                           # same recipe as Lab 7, so the float models are the Lab 7 models
+  batch_size: 128
+  baseline_epochs: 10
+  baseline_lr: 0.001
+  finetune_epochs: 3
+  finetune_lr: 0.0005
+  student_epochs: 10
+  student_lr: 0.001
+prune:
+  filter_fraction: 0.5           # structured pruning: share of filters removed in every conv layer
+distill:
+  temperature: 4
+  alpha: 0.5
+quant:
+  backend: auto                  # auto = fbgemm on Intel/AMD (x86), qnnpack on ARM / Apple Silicon
+  calibration_images: 500
+  calibration_seeds: [42, 43, 44]
+onnx:
+  opset: 17
+  tolerance: 0.0001              # max |onnx - torch| allowed
+  check_images: 1000
+latency:
+  batch1_runs: 300               # median of N runs, 1 thread
+  batch128_runs: 30              # median of N runs, all threads
+  warmup: 50
+platforms:                       # constraints used to pick a deployment variant (assumptions, see report)
+  cloud:  {max_acc_drop: 0.010, max_size_kb: null,  optimise: latency_b128_ms}
+  edge:   {max_acc_drop: 0.015, max_size_kb: 5120,  optimise: latency_b1_ms}
+  mobile: {max_acc_drop: 0.020, max_size_kb: 2048,  optimise: latency_b1_ms}
+  tinyml: {max_acc_drop: 0.030, max_size_kb: 256,   optimise: size_kb}

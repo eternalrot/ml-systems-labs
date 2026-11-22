@@ -73,3 +73,13 @@ cd Lab7
 python src/lab7.py        # baseline, pruning, latency/size, distillation, summary table (about 20-30 min)
 ```
 Baseline CNN (1.03 M parameters), global / layer-wise / structured pruning, sparse-format size and kernel test, distillation into a 106 k-parameter student. Results in `Lab7/results/`, write-up in `Lab7/report.md`.
+
+## Lab 8
+```bash
+cd Lab8
+python src/lab8.py        # manual quantization, dynamic + static quantization, ONNX export, variant table (about 10 min)
+```
+Results in `Lab8/results/`, write-up in `Lab8/report.md`.
+
+## Project
+Baseline milestone of the individual project: data pipeline (from Lab 4), trained baseline model and `metrics.json`; see `Project/README.md`.

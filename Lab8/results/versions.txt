@@ -1,0 +1,8 @@
+python 3.11.8
+torch 2.3.1+cpu
+onnx 1.16.1
+onnxruntime 1.18.0
+quantization backend fbgemm (supported: ['none', 'onednn', 'x86', 'fbgemm'])
+machine AMD64
+threads 10
+platform Windows-10-10.0.26200-SP0

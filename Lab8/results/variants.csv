@@ -1,0 +1,11 @@
+variant,runtime,test_acc,size_kb,latency_b1_ms(1 thread),latency_b128_ms,params
+baseline fp32,PyTorch,0.9152,4027.8,0.3385,5.38,1030346
+pruned (structured 50%) fp32,PyTorch,0.9132,1999.9,0.2267,2.707,511178
+distilled student fp32,PyTorch,0.9043,416.1,0.2593,4.031,105866
+baseline fp32,ONNX Runtime,0.9152,4026.5,0.1265,1.344,1030346
+pruned (structured 50%) fp32,ONNX Runtime,0.9132,1998.5,0.076,0.696,511178
+distilled student fp32,ONNX Runtime,0.9043,415.0,0.0493,0.58,105866
+baseline dynamic int8,PyTorch (fbgemm),0.9147,1079.9,0.4508,4.897,1030346
+baseline static int8,PyTorch (fbgemm),0.9157,1023.8,0.4705,3.109,1030346
+pruned + static int8,PyTorch (fbgemm),0.9134,515.8,0.3742,2.098,511178
+distilled + static int8,PyTorch (fbgemm),0.905,113.2,0.3201,2.312,105866
