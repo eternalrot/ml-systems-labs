@@ -1,0 +1,62 @@
+{
+  "project": "Adult income (>50K) classifier, baseline milestone",
+  "data": {
+    "train_rows": 34165,
+    "test_rows": 14653,
+    "features": 107,
+    "positive_rate_test": 0.2393,
+    "sha256": {
+      "train": "641eff829315bdf42ff27cd20c095ada94fa028181f34d3aae12fd63f5527828",
+      "test": "808a06c68e5bfcb4b727812f66859ff39619c66f65d13bfda5637e9338e413b0",
+      "combined": "f093328c7e5da425bf10fab0bb9867e79180d90df94c7dd207f6d7f73d539412"
+    },
+    "shapes": {
+      "train": [
+        34165,
+        107
+      ],
+      "test": [
+        14653,
+        107
+      ]
+    },
+    "ingestion_source": "OpenML adult v2 (fetch_openml)"
+  },
+  "model": {
+    "name": "MLP 107-128-64-1",
+    "parameters": 22145,
+    "file": "models/baseline.pt",
+    "best_epoch": 8,
+    "epochs": 20,
+    "batch_size": 256,
+    "optimizer": "Adam lr=0.001",
+    "seed": 42,
+    "train_seconds": 5.6
+  },
+  "test_metrics": {
+    "accuracy": 0.863,
+    "f1_income_gt_50K": 0.6927,
+    "roc_auc": 0.9156
+  },
+  "reference_baseline": {
+    "model": "LogisticRegression (Lab 4)",
+    "accuracy": 0.8578,
+    "f1": 0.6696
+  },
+  "deployment": {
+    "model_size_kb": 88.7,
+    "latency_batch1_ms_1thread": 0.0354,
+    "limits": {
+      "latency_ms": 50.0,
+      "size_mb": 5.0
+    },
+    "meets_latency": true,
+    "meets_size": true
+  },
+  "environment": {
+    "python": "3.11.8",
+    "torch": "2.3.1+cpu",
+    "sklearn": "1.5.0",
+    "platform": "Windows-10-10.0.26200-SP0"
+  }
+}

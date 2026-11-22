@@ -1,0 +1,33 @@
+check,column,rule,violations,rows_checked,status,example
+schema,(all),15 expected columns present,0,15,PASS,[]
+type,age,"integer, not null",0,48842,PASS,[]
+type,fnlwgt,"integer, not null",0,48842,PASS,[]
+type,education-num,"integer, not null",0,48842,PASS,[]
+type,capital-gain,"integer, not null",0,48842,PASS,[]
+type,capital-loss,"integer, not null",0,48842,PASS,[]
+type,hours-per-week,"integer, not null",0,48842,PASS,[]
+type,workclass,categorical (string/category),0,48842,PASS,
+type,education,categorical (string/category),0,48842,PASS,
+type,marital-status,categorical (string/category),0,48842,PASS,
+type,occupation,categorical (string/category),0,48842,PASS,
+type,relationship,categorical (string/category),0,48842,PASS,
+type,race,categorical (string/category),0,48842,PASS,
+type,sex,categorical (string/category),0,48842,PASS,
+type,native-country,categorical (string/category),0,48842,PASS,
+type,income,categorical (string/category),0,48842,PASS,
+range,age,17 <= x <= 90,0,48842,PASS,[]
+range,hours-per-week,1 <= x <= 99,0,48842,PASS,[]
+range,capital-gain,0 <= x <= 99999,0,48842,PASS,[]
+range,capital-loss,0 <= x <= 4356,0,48842,PASS,[]
+categories,workclass,value in allowed set (incl. '?'),0,48842,PASS,[]
+categories,education,value in allowed set (incl. '?'),0,48842,PASS,[]
+categories,marital-status,value in allowed set (incl. '?'),0,48842,PASS,[]
+categories,occupation,value in allowed set (incl. '?'),0,48842,PASS,[]
+categories,relationship,value in allowed set (incl. '?'),0,48842,PASS,[]
+categories,race,value in allowed set (incl. '?'),0,48842,PASS,[]
+categories,sex,value in allowed set (incl. '?'),0,48842,PASS,[]
+categories,native-country,value in allowed set (incl. '?'),0,48842,PASS,[]
+categories,income,value in allowed set (incl. '?'),0,48842,PASS,[]
+consistency,education vs education-num,mapping from data dictionary,0,48842,PASS,
+consistency,relationship vs sex,"Husband=>Male, Wife=>Female",4,48842,VIOLATION,
+duplicates,(all),"no exact duplicate rows (reported, NOT dropped here)",52,48842,VIOLATION,

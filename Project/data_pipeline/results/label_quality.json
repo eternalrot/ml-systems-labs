@@ -1,0 +1,10 @@
+{
+  "sampled_rows": 50,
+  "sample_rows_with_auto_flags": 0,
+  "feature_vectors_that_occur_more_than_once": 54,
+  "conflicting_groups(same 14 features, different income)": 5,
+  "rows_in_conflicting_groups": 10,
+  "exact_duplicate_rows(all 15 columns, incl. all copies)": 101,
+  "full_dataset_relationship_sex_conflicts": 4,
+  "full_dataset_education_mismatches": 0
+}

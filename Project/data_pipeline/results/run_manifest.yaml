@@ -1,0 +1,58 @@
+config:
+  seed: 42
+  dataset:
+    openml_name: adult
+    openml_version: 2
+    expected_rows: 48842
+    expected_columns: 15
+    target: income
+  split:
+    test_size: 0.3
+    stratify: true
+  cleaning:
+    numeric_imputer: median
+    categorical_imputer: most_frequent
+    clip_percentiles:
+    - 0.01
+    - 0.99
+    drop_duplicates_train_only: true
+    missing_token: '?'
+  features:
+    derived:
+    - capital_net
+    - hours_per_age
+  model:
+    type: LogisticRegression
+    max_iter: 1000
+  label_audit:
+    sample_size: 50
+  paths:
+    processed_dir: ../data/processed
+    results_dir: results
+processed_files:
+  train: adult_train_processed.csv
+  test: adult_test_processed.csv
+sha256:
+  train: 641eff829315bdf42ff27cd20c095ada94fa028181f34d3aae12fd63f5527828
+  test: 808a06c68e5bfcb4b727812f66859ff39619c66f65d13bfda5637e9338e413b0
+  combined: f093328c7e5da425bf10fab0bb9867e79180d90df94c7dd207f6d7f73d539412
+shapes:
+  train:
+  - 34165
+  - 107
+  test:
+  - 14653
+  - 107
+versions:
+  python: 3.11.8
+  numpy: 1.26.4
+  pandas: 2.2.2
+  scikit-learn: 1.5.0
+ingestion:
+  source: OpenML adult v2 (fetch_openml)
+  rows: 48842
+  columns: 15
+  expected_rows: 48842
+  expected_columns: 15
+  raw_content_hash: 9e68bee1bdf161a0b99a1901dcb5ef7eb7f1fc78c6b8fa07bb9a2518f281a181
+  ok: true

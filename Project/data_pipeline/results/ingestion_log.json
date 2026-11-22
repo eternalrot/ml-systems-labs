@@ -1,0 +1,9 @@
+{
+  "source": "OpenML adult v2 (fetch_openml)",
+  "rows": 48842,
+  "columns": 15,
+  "expected_rows": 48842,
+  "expected_columns": 15,
+  "raw_content_hash": "9e68bee1bdf161a0b99a1901dcb5ef7eb7f1fc78c6b8fa07bb9a2518f281a181",
+  "ok": true
+}
